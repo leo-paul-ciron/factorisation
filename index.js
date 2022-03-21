@@ -14,33 +14,44 @@ function verif(valeur) {
 
 }
 
-function facto(valeur) {
+function facto(entier) {
     
-    let entier = verif(valeur);
-    let factorisationCalcule = " 1 * ";
+    
+    let factorisationCalcule = " 1 ";
     let resultat = 1 ;
 
-    if (entier = 0) {
+
+    if (entier == 0) {
         return 1
     }
     
-    for (let index = 2; index <= valeur; index++) {
+    for (let index = 2; index <= entier; index++) {
+        
         
         resultat *= index;
 
-        if (index != valeur) {
-            factorisation = " " + index + " * ";
-        }
-        else
-        {
-            factorisation = " " + index 
-        }
+        console.log(resultat);
+
+        
+        factorisationCalcule += " * " + index ;
+        
+       
+
+        
     }
 
+    document.getElementById("affichageCalc").innerHTML = factorisationCalcule
     return resultat;
 
 }
 
-function main(params) {
-    
+function main() {
+    let valeur = document.getElementById("nombre").value; 
+    let entier = verif(valeur);
+    let resultat;
+
+    if (entier != null) {
+        resultat = facto(entier);
+        document.getElementById("afficheResulat").innerHTML = resultat;
+    }
 }
